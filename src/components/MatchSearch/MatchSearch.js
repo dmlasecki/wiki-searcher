@@ -12,7 +12,7 @@ function MatchSearch({ getWikiResults, replacePhrase, replacePhraseAll, isLoadin
 		search: "",
 		replace: "",
 	});
-	const delayedGet = debounce(handleGet, 700);
+	const delayedGet = useCallback(debounce(handleGet, 700), [input.search]);
 
 	function handleGet() {
 		getWikiResults(input.search);
@@ -23,7 +23,7 @@ function MatchSearch({ getWikiResults, replacePhrase, replacePhraseAll, isLoadin
 			delayedGet();
 		}
 		return delayedGet.cancel;
-	}, [input.search]);
+	}, [input.search, delayedGet]);
 
 
 	function handleChange(e) {
