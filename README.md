@@ -1,4 +1,4 @@
-# calendar-app
+# wiki-searcher
 Simple react app for Wikipedia's results
 
 ## How to start?
